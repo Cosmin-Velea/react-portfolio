@@ -1,0 +1,11 @@
+.banner {
+    background:  url('../images/banner-image.jpg') no-repeat center;
+    background-size:cover;
+    padding: 100px 0;
+    h1 {
+        color: #fff;
+        text-shadow: 0 1px 6px #000;
+        letter-spacing: 2px;
+        text-align: center;
+    }
+}

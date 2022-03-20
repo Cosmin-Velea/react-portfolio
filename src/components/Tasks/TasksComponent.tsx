@@ -69,11 +69,13 @@ const TasksComponent = () => {
         setTasks(tasks.map((task: any) => (task.id === id ? { ...task, reminder: data.reminder } : task)));
     };
     return (
-        <div className="tasks-container">
-            <TaskHeader title="Task Tracker" onAdd={() => { setShowAddTask(!showAddTask); }} showAdd={showAddTask} />
+        <div className="container">
+            <div className="tasks-container">
+                <TaskHeader title="Task Tracker" onAdd={() => { setShowAddTask(!showAddTask); }} showAdd={showAddTask} />
 
-            {showAddTask && <AddTask onAdd={addTask} />}
-            {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} /> : <h3>No Tasks to show</h3>}
+                {showAddTask && <AddTask onAdd={addTask} />}
+                {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} /> : <h3>No Tasks to show</h3>}
+            </div>
         </div>
     );
 };

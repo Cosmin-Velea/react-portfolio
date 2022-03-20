@@ -1,0 +1,21 @@
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-weight: 400;
+    font-size: 12px;
+    p:last-child {
+        margin-bottom: 0;
+        font-size: 11px;
+    }
+    a {
+        color: #F95700;
+    }
+}
+.js--contrast {
+    footer {
+        background:#fff;
+        color: #333;
+    }
+}

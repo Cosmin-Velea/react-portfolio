@@ -1,8 +1,45 @@
-.App {
-    max-width: 600px;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import './styles/Header';
+@import './styles/Banner';
+@import './styles/Footer';
+@import './styles/About';
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.3;
+    letter-spacing: 1px;
+}
+
+a {
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.container {
+    max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
-    h1 {
-        margin-top: 0;
+    padding: 0 20px;
+}
+
+h1 {
+    margin: 0;
+}
+
+p {
+    margin-top: 0;
+}
+
+.site-link {
+    color: #F95700;
+}
+
+.Portfolio {
+
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+
+    main {
+        flex: 1;
     }
 }
