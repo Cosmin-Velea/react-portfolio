@@ -3,6 +3,8 @@
 @import './styles/Banner';
 @import './styles/Footer';
 @import './styles/About';
+@import './styles/Projects';
+@import './styles/Clock';
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -41,5 +43,9 @@ p {
 
     main {
         flex: 1;
+        .container {
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
     }
 }

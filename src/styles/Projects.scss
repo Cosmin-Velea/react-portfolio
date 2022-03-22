@@ -1,0 +1,33 @@
+.projects-listing {
+
+    &__items {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__item {
+        width: 33%;
+        box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+        border-radius: 12px;
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+            box-shadow: 0 1px 15px rgba(0, 0, 0, 0.5);
+        }
+    }
+
+    &__content {
+        padding: 15px;
+    }
+
+    &__title {
+        font-weight: 700;
+        margin-bottom: 12px;
+        color: #F95700;
+    }
+
+    &__desc {
+        font-size: 14px;
+        color: #333;
+    }
+}
