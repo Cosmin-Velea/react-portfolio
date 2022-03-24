@@ -6,11 +6,11 @@ const Banner: FC = () => {
     const pathName = location.pathname.split('/')[1];
     interface textObject {
         projects: string,
-        roadmap: string
+        timeline: string
     }
     const bannerTexts: textObject = {
         projects: 'Projects',
-        roadmap: "Roadmap"
+        timeline: 'Timeline'
     }
     const innerPageText = bannerTexts[pathName as keyof textObject];
 

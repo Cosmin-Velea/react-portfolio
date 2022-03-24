@@ -12,7 +12,8 @@ const About = () => {
                     <h2>About me</h2>
                     <p><b>Front-end Developer</b> with 6 years experience in <b>Javascript/HTML/SCSS/GIT</b>.</p>
                     <p><b>Fast learner</b>, had to learn new things in different domains I've worked in and I'm always open to learning new things.</p>
-                    <p>For a full roadmap of my work experience you can check the <Link className="site-link" to="/roadmap">roadmap</Link></p>
+                    <p>6 years ago I decided to pursue my passion for programming and I never looked back.</p>
+                    <p>For a full timeline of my work experience you can check the <Link className="site-link" to="/timeline">Timeline</Link></p>
                 </div>
             </div>
         </div>

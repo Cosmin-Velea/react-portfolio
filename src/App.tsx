@@ -3,9 +3,10 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Banner from "./components/Banner";
 import About from "./components/About/About";
+import Timeline from "./components/Timeline/Timeline";
 import Projects from "./components/Projects/Projects";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState, useEffect, FC } from "react";
+import { useState, FC } from "react";
 import "./App.scss";
 
 const App: FC = () => {
@@ -27,6 +28,7 @@ const App: FC = () => {
                         <Route path="/" element={<About />} />
                         <Route path="/projects" element={<Projects />} />
                         <Route path="/tasks" element={<TasksComponent />} />
+                        <Route path="/timeline" element={<Timeline />} />
                     </Routes>
                 </main>
                 <Footer />

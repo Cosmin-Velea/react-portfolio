@@ -28,7 +28,7 @@ const Header: FC<HeaderProps> = ({toggleContrast, setNewContrastState, toggleMob
                     <ul>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/projects">Projects</Link></li>
-                        <li><Link to="/roadmap">Roadmap</Link></li>
+                        <li><Link to="/timeline">Timeline</Link></li>
                     </ul>
                 </nav>
                 <VscColorMode onClick={toggleContrastOnClick} className="contrast-toggle" />
