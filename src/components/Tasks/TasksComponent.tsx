@@ -1,80 +1,63 @@
 import Tasks from "./Tasks";
 import AddTask from "./AddTask";
 import TaskHeader from "./TaskHeader";
-import "./Tasks.scss";
 import { useState, useEffect } from "react";
+const { v4: uuidv4 } = require('uuid');
 
-const TasksComponent = () => {
+const TasksComponent: any = () => {
     const [showAddTask, setShowAddTask] = useState(false);
     const [tasks, setTasks] = useState<any>([]);
-    //Use Effect
+    const getTasks = JSON.parse(localStorage.getItem("tasks") || '[]');
+
     useEffect(() => {
-        const getTasks = async () => {
-            const tasksFromServer = await fetchTasks();
-            setTasks(tasksFromServer);
-        };
-        getTasks();
+        if (getTasks == null) {
+            setTasks([])
+        } else {
+            setTasks(getTasks);
+        }
     }, []);
-    //Fetch tasks
-    const fetchTasks = async () => {
-        const res = await fetch("http://localhost:5000/tasks");
-        const data = await res.json();
 
-        return data;
-    };
-    //Fetch task
-    const fetchTask = async (id: number) => {
-        const res = await fetch(`http://localhost:5000/tasks/${id}`);
-        const data = await res.json();
-
-        return data;
-    };
     //Add Task
     const addTask = async (task: any) => {
-        const res = await fetch(`http://localhost:5000/tasks/`, {
-            method: "POST",
-            headers: {
-                "Content-Type": " application/json",
-            },
-            body: JSON.stringify(task),
-        });
-
-        const data = await res.json();
-
-        setTasks([...tasks, data]);
+        const id = uuidv4();
+        const newTask = { id, ...task };
+        setTasks([...tasks, newTask]);
+        localStorage.setItem("tasks", JSON.stringify([...tasks, newTask]));
     };
+
     //Delete Task
     const deleteTask: any = async (id: number) => {
-        await fetch(`http://localhost:5000/tasks/${id}`, {
-            method: "DELETE",
-        });
-
-        setTasks(tasks.filter((task: any) => task.id !== id));
+        const deleteTask = tasks.filter((task: any) => task.id !== id);
+        setTasks(deleteTask);
+        localStorage.setItem("tasks", JSON.stringify(deleteTask));
     };
-    //Toggle Reminder
-    const toggleReminder: any = async (id: number) => {
-        const taskToToggle = await fetchTask(id);
-        const updTask = { ...taskToToggle, reminder: !taskToToggle.reminder };
 
-        const res = await fetch(`http://localhost:5000/tasks/${id}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": " application/json",
-            },
-            body: JSON.stringify(updTask),
-        });
+    //Edit Task
+    const editTask: any = async (id: number) => {
+        const text = prompt('Task Name');
+        const day = prompt('Day and Time');
+        const data = tasks.map((currentTask: any) => {
+            if (currentTask.id === id) {
+                return {
+                    ...currentTask,
+                    text: text,
+                    day: day,
+                    id: uuidv4()
+                }
+            }
+            return currentTask;
+        })
+        localStorage.setItem("tasks", JSON.stringify(data));
+        window.location.reload();
+    }
 
-        const data = await res.json();
-
-        setTasks(tasks.map((task: any) => (task.id === id ? { ...task, reminder: data.reminder } : task)));
-    };
     return (
         <div className="container">
-            <div className="tasks-container">
+            <div className="tasks tasks-container">
                 <TaskHeader title="Task Tracker" onAdd={() => { setShowAddTask(!showAddTask); }} showAdd={showAddTask} />
 
                 {showAddTask && <AddTask onAdd={addTask} />}
-                {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} /> : <h3>No Tasks to show</h3>}
+                {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onEdit={editTask} /> : <h3>No Tasks to show</h3>}
             </div>
         </div>
     );

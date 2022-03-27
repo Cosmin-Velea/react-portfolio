@@ -7,10 +7,12 @@ const Banner: FC = () => {
     interface textObject {
         projects: string,
         timeline: string
+        tasks: string
     }
     const bannerTexts: textObject = {
         projects: 'Projects',
-        timeline: 'Timeline'
+        timeline: 'Timeline',
+        tasks: 'Tasks'
     }
     const innerPageText = bannerTexts[pathName as keyof textObject];
 
