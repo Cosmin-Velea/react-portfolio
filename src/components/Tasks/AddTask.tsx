@@ -3,11 +3,9 @@ import { useState } from "react";
 const AddTask = ({ onAdd }: any) => {
     const [text, setText] = useState("");
     const [day, setDay] = useState("");
-    const [reminder, setReminder] = useState(false);
     const clearFields = () => {
         setText("");
         setDay("");
-        setReminder(false);
     };
     const onSubmit: any = (e: Event) => {
         e.preventDefault();
@@ -15,7 +13,7 @@ const AddTask = ({ onAdd }: any) => {
             alert("Please add a task");
             return;
         }
-        onAdd({ text, day, reminder });
+        onAdd({ text, day });
 
         clearFields();
     };
@@ -28,10 +26,6 @@ const AddTask = ({ onAdd }: any) => {
             <div className="form-control">
                 <label>Day & Time</label>
                 <input className="form-input" type="text" placeholder="Add Day & Time" value={day} onChange={(e) => setDay(e.target.value)} />
-            </div>
-            <div className="form-control">
-                <label>Set Reminder</label>
-                <input className="form-checkbox" type="checkbox" checked={reminder} value={String(reminder)} onChange={(e) => setReminder(e.currentTarget.checked)} />
             </div>
             <input type="submit" value="Save Task" />
         </form>

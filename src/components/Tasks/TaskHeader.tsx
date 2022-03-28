@@ -5,7 +5,7 @@ const TaskHeader = (props: any) => {
     const location = useLocation();
     return (
         <div className="tasks__header">
-            <h1>{props.title}</h1>
+            <h2>{props.title}</h2>
             {location.pathname === "/tasks" ? <TasksButton color={props.showAdd ? "red" : "green"} text={props.showAdd ? "Close" : "Add"} onClick={props.onAdd} /> : ""}
         </div>
     );
