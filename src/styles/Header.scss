@@ -1,0 +1,133 @@
+header {
+    background: rgba(34, 34, 34, 1);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top:0;
+    padding: 0 60px;
+    z-index: 6;
+
+    .mobile-trigger {
+        display: none;
+
+        color: #fff;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+            color: #F95700;
+        }
+    }
+
+    nav {
+        ul {
+            padding: 20px 0;
+            margin: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+
+            li {
+                padding: 5px 20px;
+            }
+
+            a {
+                color: #fff;
+                text-decoration: none;
+                font-weight: 700;
+
+                &:hover {
+                    color: #F95700;
+                }
+            }
+        }
+    }
+
+    .contrast-toggle {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #fff;
+        cursor: pointer;
+        border-radius: 100%;
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+            color: #F95700;
+        }
+    }
+
+    @media(max-width:767px) {
+
+        padding: 15px 0;
+
+        .mobile-trigger {
+            display: block;
+        }
+
+        nav {
+            left: -200px;
+            position: fixed;
+            top: 46px;
+            bottom: 0;
+            background: rgba(51, 51, 51, 0.8);
+            max-width: 150px;
+            width: 100%;
+            z-index: 1;
+            transition: 0.3s ease-in-out;
+
+            ul {
+                display: block;
+            }
+        }
+    }
+}
+
+.js--mobile {
+    &.js--contrast {
+        nav {
+            background: rgba(255,255,255,0.8);
+            a {
+                color: #333;
+
+                &:hover {
+                    color: #F95700;
+                }
+            }
+        }
+    }
+    header {
+        nav {
+            left: 0;
+        }
+    }
+}
+
+.js--contrast {
+    header {
+        background: #fff;
+
+        nav {
+            ul {
+                a {
+                    color: #333;
+
+                    &:hover {
+                        color: #F95700;
+                    }
+                }
+            }
+        }
+
+        .mobile-trigger,
+        .contrast-toggle {
+            color: #333;
+
+            &:hover {
+                color: #F95700;
+            }
+        }
+    }
+
+}

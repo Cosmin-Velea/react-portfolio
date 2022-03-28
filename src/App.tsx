@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import TasksComponent from "./components/Tasks/TasksComponent";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Banner from "./components/Banner";
+import About from "./components/About/About";
+import Timeline from "./components/Timeline/Timeline";
+import Projects from "./components/Projects/Projects";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState, FC } from "react";
+import "./App.scss";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App: FC = () => {
+    const [toggleContrast, setContrast] = useState(false);
+    const [toggleMobile, setMobile] = useState(false);
+    const appClasses = ['Portfolio'];
+    if (toggleContrast) {
+        appClasses.push('js--contrast');
+    } if (toggleMobile) {
+        appClasses.push('js--mobile');
+    }
+    return (
+        <Router>
+            <div className={appClasses.join(' ')}>
+                <Header setNewContrastState={setContrast} setNewMobileState={setMobile} />
+                <Banner />
+                <main>
+                    <Routes>
+                        <Route path="/" element={<About />} />
+                        <Route path="/projects" element={<Projects />} />
+                        <Route path="/tasks" element={<TasksComponent />} />
+                        <Route path="/timeline" element={<Timeline />} />
+                    </Routes>
+                </main>
+                <Footer />
+            </div>
+        </Router>
+    );
+};
 
 export default App;

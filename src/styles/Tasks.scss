@@ -1,0 +1,111 @@
+.tasks {
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    h2 {
+        margin: 0;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 15px;
+
+        .btn {
+            border: none;
+            border-radius: 3px;
+            padding: 10px 20px;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+
+            &:hover {
+                box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+
+    .task {
+        position: relative;
+        padding: 10px 90px 10px 20px;
+        border: 1px solid #ccc;
+        box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+        border-radius: 3px;
+
+        &+.task {
+            margin-top: 10px;
+        }
+
+        h3 {
+            color: #F95700;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin: 0;
+            font-size: 12px;
+        }
+
+        .icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .edit-icon {
+            right: 50px;
+            color: #254117;
+        }
+    }
+
+    .add-form {
+        padding-bottom: 10px;
+
+        .form-control {
+            margin-bottom: 10px;
+
+            label {
+                font-size: 11px;
+                text-transform: uppercase;
+                font-weight: 700;
+                letter-spacing: -0.3px;
+                display: block;
+            }
+        }
+
+        .form-input {
+            padding: 5px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            border: none;
+            border-radius: 3px;
+            padding: 10px 20px;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            background: green;
+
+            &:hover {
+                box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+    @media (max-width:767px) {
+        h2{
+            font-size:20px;
+        }
+    }
+}
